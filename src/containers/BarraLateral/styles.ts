@@ -4,6 +4,9 @@ export const Aside = styled.aside`
   padding: 16px;
   background-color: #eeeeee;
   height: 100vw;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
 `
 
 export const Filtros = styled.div`
@@ -20,5 +23,6 @@ export const Campo = styled.input`
   font-weight: bold;
   color: #666666;
   border-color: #666666;
+  // width: 100%;
   width: 90%;
 `
