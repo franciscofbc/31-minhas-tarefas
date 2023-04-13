@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Aside = styled.aside`
   padding: 16px;
   background-color: #eeeeee;
-  height: 100vw;
+  // height: 100vh;
   // display: flex;
   // flex-direction: column;
   // align-items: center;
