@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 
 import Tarefa from '../../components/Tarefa'
-import * as S from './styles'
+import { MainContainer, Titulo } from '../../styles/index'
 import { RootReducer } from '../../store'
 
 const ListaDeTarefas = () => {
@@ -32,32 +32,28 @@ const ListaDeTarefas = () => {
     }
   }
 
+  const tarefas = filtraTarefas()
   return (
-    <S.Container>
-      <p>
-        2 tarefas marcadas como: &quot;categoria&quot; e &quot;{termo}&quot;
-      </p>
+    <MainContainer>
+      <Titulo as="p">
+        {tarefas.length} tarefa(s) marcada(s) como: &quot;{`${criterio}`}
+        {valor !== undefined && `=${valor}`}&quot;
+        {termo !== undefined && termo.length > 0 && ` e "${termo}"`}
+      </Titulo>
       <ul>
-        <li>{termo}</li>
-        <li>{criterio}</li>
-        <li>{valor}</li>
+        {tarefas.map(({ titulo, descricao, prioridade, status, id }) => (
+          <li key={id}>
+            <Tarefa
+              id={id}
+              titulo={titulo}
+              descricao={descricao}
+              prioridade={prioridade}
+              status={status}
+            />
+          </li>
+        ))}
       </ul>
-      <ul>
-        {filtraTarefas().map(
-          ({ titulo, descricao, prioridade, status, id }) => (
-            <li key={id}>
-              <Tarefa
-                id={id}
-                titulo={titulo}
-                descricao={descricao}
-                prioridade={prioridade}
-                status={status}
-              />
-            </li>
-          )
-        )}
-      </ul>
-    </S.Container>
+    </MainContainer>
   )
 }
 
