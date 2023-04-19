@@ -33,6 +33,7 @@ const ListaDeTarefas = () => {
   }
 
   const tarefas = filtraTarefas()
+
   return (
     <MainContainer>
       <Titulo as="p">

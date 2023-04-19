@@ -1,26 +1,43 @@
 import { FaRegTrashAlt, FaEdit, FaEnvelope, FaPhoneAlt } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
+import ContatoClass from '../../models/Contato'
+import { remover } from '../../store/reducers/contatos'
 import * as S from './styles'
 
-const Contato = () => {
+type ContatoClassProps = ContatoClass
+
+const Contato = ({ id, nome, email, telefone }: ContatoClassProps) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   return (
     <S.Card>
       <S.FlexDiv>
-        <S.CampoNome>gabriela blatt</S.CampoNome>
+        <S.CampoNome>{nome}</S.CampoNome>
         <div>
-          <S.Btn>
+          <S.Btn
+            onClick={() => {
+              navigate('/editar')
+            }}
+          >
             <FaEdit />
           </S.Btn>
-          <S.Btn>
+          <S.Btn
+            onClick={() => {
+              dispatch(remover(id))
+            }}
+          >
             <FaRegTrashAlt />
           </S.Btn>
         </div>
       </S.FlexDiv>
       <S.CamposContato>
-        <FaPhoneAlt /> 55.9.8142.6277
+        <FaPhoneAlt /> {telefone}
       </S.CamposContato>
       <S.CamposContato>
-        <FaEnvelope /> fbc991@live.com
+        <FaEnvelope /> {email}
       </S.CamposContato>
     </S.Card>
   )

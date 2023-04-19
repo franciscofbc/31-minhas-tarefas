@@ -6,7 +6,7 @@ import { FaArrowLeft, FaRegSave } from 'react-icons/fa'
 import * as S from './styles'
 import { cadastrar } from '../../store/reducers/contatos'
 
-const FormCadastro = () => {
+const FormEditar = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -61,4 +61,4 @@ const FormCadastro = () => {
   )
 }
 
-export default FormCadastro
+export default FormEditar
