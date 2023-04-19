@@ -29,5 +29,6 @@ export const DivInputs = styled.div`
     border-radius: 8px;
     margin-top: 4px;
     border: none;
+    // border: 1px solid ${variaveis.blue};
   }
 `
