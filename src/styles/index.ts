@@ -6,13 +6,15 @@ const EstiloGlobal = createGlobalStyle`
   margin:0;
   padding:0;
   box-sizeng:border-box;
-  font-family: 'Roboto', sans-serif;
-  list-style:none;
-}
+  font-family: 'Roboto Mono', monospace;
 `
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 224px auto;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: ${variaveis.white};
+  padding-top: 64px;
 `
 
 export const MainContainer = styled.main`
