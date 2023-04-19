@@ -23,10 +23,6 @@ const ListaDeContatos = () => {
       </ul>
     </S.DivContatos>
   )
-
-  // <S.DivContatos>
-  //   <Contato />
-  // </S.DivContatos>
 }
 
 export default ListaDeContatos
