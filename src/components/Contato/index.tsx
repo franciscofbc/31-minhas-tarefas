@@ -1,13 +1,6 @@
-import {
-  FaRegTrashAlt,
-  FaEdit,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaRegSave
-} from 'react-icons/fa'
-
+import { FaRegTrashAlt, FaEdit, FaEnvelope, FaPhoneAlt } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
-import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import ContatoClass from '../../models/Contato'
 import { remover } from '../../store/reducers/contatos'
@@ -15,41 +8,22 @@ import * as S from './styles'
 
 type ContatoClassProps = ContatoClass
 
-const Contato = ({
-  id,
-  nome: nomeOriginal,
-  email,
-  telefone
-}: ContatoClassProps) => {
+const Contato = ({ id, nome, email, telefone }: ContatoClassProps) => {
   const dispatch = useDispatch()
-
-  const [estaEditando, setEstaEditando] = useState(false)
-  const [nome, setNome] = useState('')
-
-  useEffect(() => {
-    if (nomeOriginal.length > 0) {
-      setNome(nomeOriginal)
-    }
-  }, [nomeOriginal])
+  const navigate = useNavigate()
 
   return (
     <S.Card>
       <S.FlexDiv>
-        <input
-          value={nome}
-          disabled={!estaEditando}
-          onChange={(event) => setNome(event.target.value)}
-        />
+        <S.CampoNome>{nome}</S.CampoNome>
         <div>
-          {estaEditando ? (
-            <S.Btn onClick={() => setEstaEditando(false)}>
-              <FaRegSave />
-            </S.Btn>
-          ) : (
-            <S.Btn onClick={() => setEstaEditando(true)}>
-              <FaEdit />
-            </S.Btn>
-          )}
+          <S.Btn
+            onClick={() => {
+              navigate('/editar')
+            }}
+          >
+            <FaEdit />
+          </S.Btn>
           <S.Btn
             onClick={() => {
               dispatch(remover(id))

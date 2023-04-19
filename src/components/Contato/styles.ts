@@ -6,14 +6,6 @@ export const Card = styled.div`
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
-
-  input {
-    font-size: 16px;
-    text-transform: capitalize;
-    color: ${variaveis.white};
-    background-color: transparent;
-    border: none;
-  }
 `
 export const FlexDiv = styled.div`
   display: flex;
