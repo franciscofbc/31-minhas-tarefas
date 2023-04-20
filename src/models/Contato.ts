@@ -1,8 +1,8 @@
 class Contato {
   id: number
-  nome: string
-  email: string
-  telefone: string
+  nome?: string
+  email?: string
+  telefone?: string
 
   constructor(id: number, nome: string, email: string, telefone: string) {
     this.id = id

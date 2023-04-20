@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import ContatoClass from '../../models/Contato'
 import { remover } from '../../store/reducers/contatos'
+import { alteraId } from '../../store/reducers/filtroContatos'
 import * as S from './styles'
 
 type ContatoClassProps = ContatoClass
@@ -13,12 +14,13 @@ const Contato = ({ id, nome, email, telefone }: ContatoClassProps) => {
   const navigate = useNavigate()
 
   return (
-    <S.Card>
+    <S.Card corId={id}>
       <S.FlexDiv>
         <S.CampoNome>{nome}</S.CampoNome>
         <div>
           <S.Btn
             onClick={() => {
+              dispatch(alteraId(id))
               navigate('/editar')
             }}
           >

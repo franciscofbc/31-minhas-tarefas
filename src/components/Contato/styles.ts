@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 
-export const Card = styled.div`
-  background-color: ${variaveis.blue};
+type Props = {
+  corId: number
+}
+
+export const Card = styled.div<Props>`
+  background-color: ${(props) =>
+    props.corId % 2 === 0 ? variaveis.blue : variaveis.amarelo};
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;

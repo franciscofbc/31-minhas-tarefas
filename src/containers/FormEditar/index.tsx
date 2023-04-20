@@ -1,45 +1,52 @@
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { FormEvent, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useState } from 'react'
 import { FaArrowLeft, FaRegSave } from 'react-icons/fa'
 
 import * as S from './styles'
-import { cadastrar } from '../../store/reducers/contatos'
+import { RootReducer } from '../../store'
+import { editar } from '../../store/reducers/contatos'
 
 const FormEditar = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const [nome, setNome] = useState('')
-  const [email, setEmail] = useState('')
-  const [telefone, setTelefone] = useState('')
+  const { itens } = useSelector((state: RootReducer) => state.contatos)
+  const { id } = useSelector((state: RootReducer) => state.filtroContatos)
+  const contato = itens.find((contato) => contato.id === id)
 
-  const cadastrarContato = (event: FormEvent) => {
-    event.preventDefault()
-    dispatch(cadastrar({ nome, email, telefone }))
-    navigate('/')
-  }
+  const [nome, setNome] = useState(contato?.nome)
+  const [email, setEmail] = useState(contato?.email)
+  const [telefone, setTelefone] = useState(contato?.telefone)
 
   return (
     <S.DivPrincipal>
       {/* <h3>Adicionar Contato</h3> */}
-      <S.Form onSubmit={cadastrarContato}>
+      <S.Form
+        onSubmit={() => {
+          dispatch(editar({ id, nome, email, telefone }))
+          navigate('/')
+        }}
+      >
         <S.DivInputs>
           <input
             type="text"
             placeholder="Nome Completo"
+            value={nome}
             required
             onChange={(event) => setNome(event.target.value)}
           />
           <input
             type="email"
             placeholder="E-mail"
+            value={email}
             required
             onChange={(event) => setEmail(event.target.value)}
           />
           <input
             type="tel"
             placeholder="Telefone"
+            value={telefone}
             required
             onChange={(event) => setTelefone(event.target.value)}
           />
