@@ -3,7 +3,7 @@ import variaveis from '../../styles/variaveis'
 
 export const DivPrincipal = styled.div`
   text-align: center;
-  background-color: ${variaveis.cinzaEscuro};
+  // background-color: ${variaveis.cinzaEscuro};
   padding: 64px;
   border-radius: 16px;
 

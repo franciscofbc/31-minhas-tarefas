@@ -24,7 +24,9 @@ const FormEditar = () => {
       {/* <h3>Adicionar Contato</h3> */}
       <S.Form
         onSubmit={() => {
-          dispatch(editar({ id, nome, email, telefone }))
+          if (nome !== undefined) {
+            dispatch(editar({ id, nome, email, telefone }))
+          }
           navigate('/')
         }}
       >

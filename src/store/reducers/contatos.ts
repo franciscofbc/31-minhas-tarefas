@@ -1,5 +1,4 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-
 import Contato from '../../models/Contato'
 
 type ContatosState = {
@@ -30,6 +29,18 @@ const initialState: ContatosState = {
       id: 4,
       nome: 'anderson ceccato',
       email: 'anderson@gmail.com',
+      telefone: '(55)9.9999.9999'
+    },
+    {
+      id: 5,
+      nome: 'ilario blatt',
+      email: 'gabriela@gmail.com',
+      telefone: '(55)9.9999.9999'
+    },
+    {
+      id: 6,
+      nome: 'francisco berti da cruz',
+      email: 'gabriela@gmail.com',
       telefone: '(55)9.9999.9999'
     }
   ]

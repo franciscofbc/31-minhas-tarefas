@@ -1,6 +1,6 @@
 class Contato {
   id: number
-  nome?: string
+  nome: string
   email?: string
   telefone?: string
 
