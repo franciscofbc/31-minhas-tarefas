@@ -9,6 +9,7 @@ const ListaDeContatos = () => {
 
   return (
     <S.DivContatos>
+      <input type="text" placeholder="Pesquisar..." />
       <ul>
         {itens.map((itens) => (
           <li key={itens.id}>

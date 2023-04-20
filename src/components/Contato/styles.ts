@@ -23,7 +23,7 @@ export const CamposContato = styled.p`
 export const CampoNome = styled(CamposContato)`
   font-size: 24px;
   margin-bottom: 16px;
-  text-transform: capitalize;
+  // text-transform: capitalize;
 `
 export const Btn = styled.button`
   background-color: transparent;

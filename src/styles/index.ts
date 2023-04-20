@@ -12,9 +12,13 @@ export const Container = styled.div`
   max-width: 960px;
   width: 100%;
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
   background-color: ${variaveis.white};
-  padding-top: 64px;
+  // background-color: red;
+  padding: 64px 64px;
+  // padding-bottom: 64px;
+
+  border-radius: 16px;
 `
 
 export const MainContainer = styled.main`

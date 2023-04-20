@@ -3,9 +3,14 @@ import variaveis from '../../styles/variaveis'
 
 export const DivPrincipal = styled.div`
   text-align: center;
+  background-color: ${variaveis.cinzaEscuro};
+  padding: 64px;
+  border-radius: 16px;
+
+  // margin-top: 128px;
 
   h3 {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     margin-bottom: 16px;
     color: ${variaveis.blue};
   }
@@ -18,6 +23,8 @@ export const Form = styled.form`
     color: ${variaveis.blue};
     cursor: pointer;
     margin-top: 16px;
+
+    background-color: transparent;
   }
 `
 export const DivInputs = styled.div`
